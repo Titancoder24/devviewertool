@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevViewer — UI Timeline</title>
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="logo">
+        <span class="logo-icon">&#9654;</span>
+        <h1>DevViewer</h1>
+      </div>
+      <div class="project-info" id="project-info"></div>
+      <div class="stats" id="stats"></div>
+    </header>
+
+    <main>
+      <section class="viewer">
+        <div class="screenshot-container" id="screenshot-container">
+          <div class="placeholder" id="placeholder">
+            <p>Select a commit from the timeline to view the UI snapshot</p>
+          </div>
+          <img id="screenshot" alt="UI Screenshot" style="display:none">
+        </div>
+        <div class="commit-detail" id="commit-detail" style="display:none">
+          <div class="commit-sha" id="detail-sha"></div>
+          <div class="commit-message" id="detail-message"></div>
+          <div class="commit-meta">
+            <span id="detail-author"></span>
+            <span id="detail-date"></span>
+          </div>
+          <div class="commit-files" id="detail-files"></div>
+        </div>
+      </section>
+
+      <section class="timeline-section">
+        <div class="timeline-controls">
+          <button id="btn-prev" title="Previous commit">&larr;</button>
+          <button id="btn-play" title="Play/Pause">&#9654;</button>
+          <button id="btn-next" title="Next commit">&rarr;</button>
+          <label class="filter-label">
+            <input type="checkbox" id="filter-frontend" checked>
+            Frontend changes only
+          </label>
+          <div class="speed-control">
+            <label>Speed:</label>
+            <input type="range" id="speed" min="200" max="3000" value="1000" step="100">
+            <span id="speed-val">1.0s</span>
+          </div>
+        </div>
+        <div class="timeline-track" id="timeline-track"></div>
+        <div class="timeline-scrubber">
+          <input type="range" id="scrubber" min="0" max="0" value="0">
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/public/app.js"></script>
+</body>
+</html>
